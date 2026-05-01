@@ -1,0 +1,40 @@
+fsse2602_project_frontend-master/
+├── public/
+├── src/
+│   ├── api/
+│   │   └── productApi.ts            # API service for product-related requests
+│   ├── data/
+│   │   └── product/
+│   │       └── product.type.ts     # Type definitions for product DTOs
+│   ├── routes/
+│   │   ├── __root.tsx              # Root route layout
+│   │   ├── index.tsx               # Home/Listing page route
+│   │   ├── error.tsx               # Error page route
+│   │   └── product/
+│   │       └── $productId.tsx      # Dynamic route for product details
+│   ├── ui/
+│   │   ├── components/             # Reusable UI components
+│   │   │   ├── LoadingContainer.tsx
+│   │   │   ├── QuantitySelector.tsx
+│   │   │   └── TopNavBar.tsx
+│   │   └── page/                  # Page-level components
+│   │       ├── ErrorPage/
+│   │       │   └── index.tsx
+│   │       ├── ProductDetailPage/
+│   │       │   ├── index.tsx
+│   │       │   └── response.json
+│   │       └── ProductListingPage/
+│   │           ├── components/
+│   │           │   ├── ProductCard.tsx
+│   │           │   └── ProductCardContainer.tsx
+│   │           ├── index.tsx
+│   │           └── response.json
+│   ├── index.css                   # Global styles
+│   ├── main.tsx                    # Application entry point
+│   ├── RootComponent.tsx           # Main root component
+│   └── routeTree.gen.ts            # Auto-generated TanStack Router tree
+├── eslint.config.js                # ESLint configuration
+├── index.html                      # HTML entry point
+├── package.json                    # Project dependencies and scripts
+├── tsconfig.json                   # TypeScript configuration
+└── vite.config.ts                  # Vite configuration
