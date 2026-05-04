@@ -13,9 +13,24 @@ export async function getUserCart() {
 }
 
 export async function putCartItem(pid: number, quantity: number) {
-      await axios.put<CartItemDto[]>(
+      await axios.put(
       `${baseUrl}/cart/items/${pid}/${quantity}`,
           null,
           await getAuthConfig()
       );
+}
+
+export async function patchCartItemQuantity(pid: number, quantity: number) {
+  await axios.patch(
+      `${baseUrl}/cart/items/${pid}/${quantity}`,
+      null,
+      await getAuthConfig()
+  );
+}
+
+export async function deleteCartItem(pid: number) {
+  await axios.delete(
+      `${baseUrl}/cart/items/${pid}`,
+      await getAuthConfig()
+  );
 }

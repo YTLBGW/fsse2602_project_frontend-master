@@ -1,0 +1,38 @@
+import axios from "axios";
+import type {TransactionDto} from "../data/transaction/transaction.type.ts";
+import {getAuthConfig} from "../authService/FirebaseAuthService.ts";
+
+const baseUrl = "http://localhost:8080";
+
+export async function getTransactionByTid(tid: number) {
+  const response = await axios.get<TransactionDto>(
+      `${baseUrl}/transactions/${tid}`,
+      await getAuthConfig()
+  );
+  return response.data;
+}
+
+export async function postTransaction(){
+  const response = await axios.post<TransactionDto>(
+      `${baseUrl}/transactions`,
+      null,
+      await getAuthConfig()
+  );
+  return response.data;
+}
+
+export async function patchTransactionProcessing(tid: number){
+      await axios.patch<TransactionDto>(
+      `${baseUrl}/transactions/${tid}/payment`,
+      null,
+      await getAuthConfig()
+  );
+}
+
+export async function patchTransactionSuccess(tid: number){
+  await axios.patch<TransactionDto>(
+      `${baseUrl}/transactions/${tid}/success`,
+      null,
+      await getAuthConfig()
+  );
+}

@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBasketShopping} from "@fortawesome/free-solid-svg-icons";
 
 export default function TopNavBar() {
-  const navigate = useNavigate({from: "/login/"});
+  const navigate = useNavigate();
   const loginUser = useContext(LoginUserContext);
   const renderLoginContainer = () => {
     if(loginUser) {
@@ -15,14 +15,17 @@ export default function TopNavBar() {
       <>
         <div className="text-white me-2">
           {loginUser.email}
-          <Button variant="link">
+          <Button
+              variant="link"
+              onClick={() => {
+                void navigate({to: "/cart"});
+              }}
+          >
             <FontAwesomeIcon
                 icon={faBasketShopping}
                 bounce
                 style={{color: "rgb(255, 255, 255)",}}
-                onClick={() => {
-                  void navigate({to: "/cart"});
-                }}
+
             />
           </Button>
         </div>
@@ -50,7 +53,7 @@ export default function TopNavBar() {
   return (
       <Navbar bg="info" data-bs-theme="info">
         <Container>
-          <Link href="/" style={{textDecoration: 'none'}}>
+          <Link to="/" style={{textDecoration: 'none'}}>
             <Navbar.Brand style={{color: "white"}}>Pokemon Card Shop</Navbar.Brand>
           </Link>
           <Navbar.Toggle />

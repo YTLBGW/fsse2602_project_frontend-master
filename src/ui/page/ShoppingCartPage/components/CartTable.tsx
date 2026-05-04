@@ -4,9 +4,11 @@ import type {CartItemDto} from "../../../../data/cartitem/cartitem.type.ts";
 
 interface Props{
   cartItemDtoList: CartItemDto[];
+  handleQuantityChange: (pid: number, quantity: number) => void;
+  handleDeleteCartItem: (pid: number) => void;
 }
 
-export default function CartTable({cartItemDtoList}: Props) {
+export default function CartTable({cartItemDtoList, handleQuantityChange, handleDeleteCartItem}: Props) {
 
   return (
   <Table className="align-middle" hover>
@@ -26,6 +28,8 @@ export default function CartTable({cartItemDtoList}: Props) {
           <CartTableRow
             key={cartItem.pid}
             cartItem={cartItem}
+            handleQuantityChange={handleQuantityChange}
+            handleDeleteCartItem={handleDeleteCartItem}
       />
       ))
     }

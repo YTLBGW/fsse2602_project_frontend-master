@@ -14,6 +14,7 @@ export default function ProductCardContainer({dtoList}: ProductCardContainerProp
           dtoList.map(
               (dto) => (
               <Col
+                  key={dto.pid}
                   className="d-flex justify-content-center my-2"
                   xs={12} md={6} lg={4} xl={3}
               >
