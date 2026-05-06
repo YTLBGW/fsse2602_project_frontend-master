@@ -1,10 +1,11 @@
 import TopNavBar from "../../components/TopNavBar.tsx";
 import { Button, Container } from "react-bootstrap";
-import { useNavigate, useParams } from "@tanstack/react-router";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 
 export default function ThankYouPage() {
-  const navigate = useNavigate({ from: "/thankyou" });
-  const { tid } = useParams({ from: "/thankyou" }) || {};
+  const navigate = useNavigate();
+  const search = useSearch({ from: "/thankyou/" });
+  const tid = search?.tid;
 
   return (
     <div
@@ -29,10 +30,10 @@ export default function ThankYouPage() {
             />
           </div>
 
-          <h1 className="display-4 fw-bold text-white mb-3">
+          <h1 className="display-4 fw-bold text-white mb-3 text-nowrap">
             Payment Successful!
           </h1>
-          <p className="lead text-white-50 mb-2">
+          <p className="lead text-white-50 mb-2 text-nowrap">
             Thank you for your order. Your legendary cards are being prepared!
           </p>
           <p className="text-info fw-bold mb-5 fs-5">Transaction ID: #{tid}</p>
