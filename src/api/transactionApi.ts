@@ -22,17 +22,19 @@ export async function postTransaction(){
 }
 
 export async function patchTransactionProcessing(tid: number){
-      await axios.patch<TransactionDto>(
+      const response = await axios.patch<string>(
       `${baseUrl}/transactions/${tid}/payment`,
       null,
       await getAuthConfig()
   );
+      return response.data;
 }
 
 export async function patchTransactionSuccess(tid: number){
-  await axios.patch<TransactionDto>(
+  const response = await axios.patch<string>(
       `${baseUrl}/transactions/${tid}/success`,
       null,
       await getAuthConfig()
   );
+  return response.data;
 }

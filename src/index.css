@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-fire: #ff4d4d;
+  --neon-water: #4d94ff;
+  --neon-grass: #5cd65c;
+  --neon-electric: #ffff4d;
+  --neon-psychic: #ff4df2;
+  --neon-dark: #705898;
+  --neon-dragon: #ff8c1a;
+  --neon-default: #ffffff;
+}
+
+body {
+  background-color: #0f0f1a;
+  color: #e0e0e0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer components {
+  .glass-container {
+    @apply bg-white/15 backdrop-blur-xl border border-white/30 rounded-2xl shadow-2xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  .cyber-card {
+    @apply transition-all duration-300 ease-out cursor-pointer rounded-2xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-md;
+  }
+
+  .kawaii-bounce {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .kawaii-bounce:hover {
+    transform: scale(1.08) !important;
+  }
+
+  .kawaii-bounce:active {
+    transform: scale(0.92) !important;
+  }
+}
+
+.neon-glow-fire:hover {
+  box-shadow: 0 0 15px var(--neon-fire), 0 0 30px var(--neon-fire);
+  border-color: var(--neon-fire);
+}
+.neon-glow-water:hover {
+  box-shadow: 0 0 15px var(--neon-water), 0 0 30px var(--neon-water);
+  border-color: var(--neon-water);
+}
+.neon-glow-grass:hover {
+  box-shadow: 0 0 15px var(--neon-grass), 0 0 30px var(--neon-grass);
+  border-color: var(--neon-grass);
+}
+.neon-glow-electric:hover {
+  box-shadow: 0 0 15px var(--neon-electric), 0 0 30px var(--neon-electric);
+  border-color: var(--neon-electric);
+}
+.neon-glow-default:hover {
+  box-shadow: 0 0 15px var(--neon-default), 0 0 30px var(--neon-default);
+  border-color: var(--neon-default);
+}

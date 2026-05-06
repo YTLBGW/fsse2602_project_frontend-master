@@ -1,36 +1,16 @@
-import {Table} from "react-bootstrap";
-import TransactionTableRow from "./TransactionTableRow.tsx";
-import type {TransactionDto} from "../../../../data/transaction/transaction.type.ts";
+import type { TransactionDto } from "../../../../data/transaction/transaction.type.ts";
+import TransactionItemRow from "./TransactionTableRow.tsx";
 
-interface Props{
+interface Props {
   transactionDto: TransactionDto;
 }
 
-export default function TransactionTable({transactionDto}: Props) {
+export default function TransactionList({ transactionDto }: Props) {
   return (
-      <Table className="align-middle">
-        <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Unit Price</th>
-          <th>Quantity</th>
-          <th>Sub-total</th>
-
-        </tr>
-        </thead>
-        <tbody>
-
-        {
-          transactionDto.items.map((transactionItem) => (
-              <TransactionTableRow
-                key={transactionItem.tpid}
-                transactionItem={transactionItem}
-              />
-          ))
-        }
-
-        </tbody>
-      </Table>
-  )
+    <div className="mb-4">
+      {transactionDto.items.map((item) => (
+        <TransactionItemRow key={item.tpid} transactionItem={item} />
+      ))}
+    </div>
+  );
 }
