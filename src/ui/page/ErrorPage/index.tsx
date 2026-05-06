@@ -1,9 +1,8 @@
-import TopNavBar from "../../components/TopNavBar.tsx";
 import { Button, Container } from "react-bootstrap";
 import { useNavigate } from "@tanstack/react-router";
 
 export default function ErrorPage() {
-  const navigate = useNavigate({ from: "/error" });
+  const navigate = useNavigate({ from: "/error/" });
 
   return (
     <div

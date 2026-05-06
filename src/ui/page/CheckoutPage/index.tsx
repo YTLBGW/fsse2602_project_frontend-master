@@ -1,4 +1,3 @@
-import TopNavBar from "../../components/TopNavBar.tsx";
 import { Button, Container } from "react-bootstrap";
 import TransactionList from "./components/TransactionTable.tsx";
 import { useContext, useEffect, useState } from "react";
@@ -28,7 +27,7 @@ export default function CheckoutPage() {
       const stripeUrl = await patchTransactionProcessing(Number(tid));
       window.location.replace(stripeUrl);
       await patchTransactionSuccess(Number(tid));
-      void navigate({ to: "/thankyou" });
+      void navigate({ to: "/thankyou", search: { tid } });
     } catch {
       void navigate({ to: "/error" });
     } finally {

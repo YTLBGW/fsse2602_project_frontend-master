@@ -1,4 +1,3 @@
-import TopNavBar from "../../components/TopNavBar.tsx";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import CartItem from "./components/CartItem.tsx";
 import { useContext, useEffect, useState } from "react";
@@ -16,7 +15,6 @@ export default function ShoppingCartPage() {
     CartItemDto[] | undefined
   >(undefined);
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   const renderTotal = () => {
@@ -66,7 +64,6 @@ export default function ShoppingCartPage() {
         const responseData = await getUserCart();
         setCartItemDtoList(responseData);
       } catch {
-        setIsError(true);
         void navigate({ to: "/error" });
       } finally {
         setIsLoading(false);

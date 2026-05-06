@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { getAllProducts } from "../../../api/productApi.ts";
-import type { ProductDto } from "../../data/product/product.type.ts";
+import type { GetAllProductDto } from "../../../data/product/product.type.ts";
 
 export default function HomePage() {
-  const [shuffledCards, setShuffledCards] = useState<ProductDto[]>([]);
+  const [shuffledCards, setShuffledCards] = useState<GetAllProductDto[]>([]);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // 1. Fetch Backend 資料

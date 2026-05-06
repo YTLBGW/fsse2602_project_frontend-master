@@ -1,5 +1,4 @@
-import TopNavBar from "../../components/TopNavBar.tsx";
-import { Button, Container, Row, Col, Stack } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 import QuantitySelector from "../../components/QuantitySelector.tsx";
 import { useEffect, useState } from "react";
 import type { ProductDto } from "../../../data/product/product.type.ts";
