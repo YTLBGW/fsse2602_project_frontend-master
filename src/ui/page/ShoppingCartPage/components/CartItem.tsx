@@ -50,52 +50,60 @@ export default function CartItem({
   };
 
   return (
-    <div
-      className={`cyber-card kawaii-bounce ${getGlowClass(cartItem.name)} p-3 mb-3 d-flex align-items-center`}
-    >
-      <div className="flex-shrink-0 me-3">
-        <img
-          src={cartItem.imageUrl}
-          width={80}
-          alt={cartItem.name}
-          className="rounded-lg"
-        />
-      </div>
-      <div className="flex-grow-1">
-        <h5 className="text-white mb-1 fw-bold fs-4">{cartItem.name}</h5>
-        <div className="text-white-50 fs-5 mb-2">
-          ${cartItem.price.toLocaleString()} / unit
-        </div>
-        <div className="d-flex align-items-center justify-content-between">
-          <QuantitySelector
-            quantity={cartItem.cartQuantity}
-            stock={cartItem.stock}
-            handleQuantityMinusOne={handleQuantityMinusOne}
-            handleQuantityPlusOne={handleQuantityPlusOne}
-            isLoading={isLoading}
+      <div
+          className={`cyber-card kawaii-bounce ${getGlowClass(cartItem.name)} p-3 mb-3 d-flex align-items-center`}
+      >
+        <div className="flex-shrink-0 me-3">
+          <img
+              src={cartItem.imageUrl}
+              width={80}
+              alt={cartItem.name}
+              className="rounded-lg"
           />
-          <div className="fw-bold text-info fs-5 ms-3">
-            ${(cartItem.price * cartItem.cartQuantity).toLocaleString()}
+        </div>
+        <div className="flex-grow-1">
+          <h5 className="text-white mb-1 fw-bold fs-4">{cartItem.name}</h5>
+          <div className="text-white-50 fs-5 mb-2">
+            ${cartItem.price.toLocaleString()} / unit
+          </div>
+
+          {/* 主要修改區域：將 Quantity, Subtotal 同 Delete 重新排位 */}
+          <div className="d-flex align-items-center justify-content-between mt-3">
+
+            <QuantitySelector
+                quantity={cartItem.cartQuantity}
+                stock={cartItem.stock}
+                handleQuantityMinusOne={handleQuantityMinusOne}
+                handleQuantityPlusOne={handleQuantityPlusOne}
+                isLoading={isLoading}
+            />
+
+            {/* 右側 Group：Subtotal + Delete Button */}
+            <div className="d-flex align-items-center gap-3">
+              <div className="fw-bold text-info fs-5">
+                ${(cartItem.price * cartItem.cartQuantity).toLocaleString()}
+              </div>
+
+              <Button
+                  variant="outline-danger"
+                  onClick={handleDelete}
+                  disabled={isDeletingCartItem}
+                  className="rounded-circle p-2 border-danger/30 hover:bg-danger"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "all 0.2s ease"
+                  }}
+              >
+                <FontAwesomeIcon icon={faTrashCan} className="text-white" />
+              </Button>
+            </div>
+
           </div>
         </div>
       </div>
-      <div className="ms-3">
-        <Button
-          variant="outline-danger"
-          onClick={handleDelete}
-          disabled={isDeletingCartItem}
-          className="rounded-circle p-2 border-danger/30 hover:bg-danger"
-          style={{
-            width: "40px",
-            height: "40px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <FontAwesomeIcon icon={faTrashCan} className="text-white" />
-        </Button>
-      </div>
-    </div>
   );
 }

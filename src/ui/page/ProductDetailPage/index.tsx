@@ -98,7 +98,6 @@ export default function ProductDetailPage() {
       className="min-vh-100 d-flex flex-column"
       style={{ backgroundColor: "#0f0f1a", color: "#e0e0e0" }}
     >
-      <TopNavBar />
       {!isLoading && productDto ? (
         <Container className="flex-grow-1 py-5">
           <Row className="align-items-center gy-5">

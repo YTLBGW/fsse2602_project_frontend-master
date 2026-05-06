@@ -1,20 +1,20 @@
 import {Button, Spinner, Stack} from "react-bootstrap";
 
 interface QuantitySelectorProps {
-  quantity: number,
-  handleQuantityMinusOne?: () => void,
-  handleQuantityPlusOne?: () => void,
-  stock: number,
-  isLoading?: boolean,
+  quantity: number;
+  handleQuantityMinusOne?: () => void;
+  handleQuantityPlusOne?: () => void;
+  stock: number;
+  isLoading?: boolean;
 }
 
 export default function QuantitySelector({
-                                           quantity,
-                                           handleQuantityMinusOne,
-                                           handleQuantityPlusOne,
-                                           stock,
-                                            isLoading = false,
-                                         }: QuantitySelectorProps) {
+  quantity,
+  handleQuantityMinusOne,
+  handleQuantityPlusOne,
+  stock,
+  isLoading = false,
+}: QuantitySelectorProps) {
   return (
       <Stack direction="horizontal">
         <Button

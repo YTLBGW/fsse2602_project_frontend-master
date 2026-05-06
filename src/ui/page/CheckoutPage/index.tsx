@@ -56,7 +56,6 @@ export default function CheckoutPage() {
       className="min-vh-100 d-flex flex-column"
       style={{ backgroundColor: "#0f0f1a", color: "#e0e0e0" }}
     >
-      <TopNavBar />
       <Container className="flex-grow-1 d-flex align-items-center justify-content-center py-5">
         {transactionDto && !isLoading ? (
           <div

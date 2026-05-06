@@ -84,7 +84,6 @@ export default function ShoppingCartPage() {
       className="min-vh-100 d-flex flex-column"
       style={{ backgroundColor: "#0f0f1a", color: "#e0e0e0" }}
     >
-      <TopNavBar />
       <Container className="flex-grow-1 py-5">
         <div className="text-center mb-5">
           <h1 className="display-4 fw-bold text-white mb-2">

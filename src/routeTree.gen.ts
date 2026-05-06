@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ThankyouIndexRouteImport } from './routes/thankyou/index'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as LoginIndexRouteImport } from './routes/login/index'
 import { Route as ErrorIndexRouteImport } from './routes/error/index'
 import { Route as CartIndexRouteImport } from './routes/cart/index'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const ThankyouIndexRoute = ThankyouIndexRouteImport.update({
   id: '/thankyou/',
   path: '/thankyou/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginIndexRoute = LoginIndexRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/cart/': typeof CartIndexRoute
   '/error/': typeof ErrorIndexRoute
   '/login/': typeof LoginIndexRoute
+  '/products/': typeof ProductsIndexRoute
   '/thankyou/': typeof ThankyouIndexRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartIndexRoute
   '/error': typeof ErrorIndexRoute
   '/login': typeof LoginIndexRoute
+  '/products': typeof ProductsIndexRoute
   '/thankyou': typeof ThankyouIndexRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/cart/': typeof CartIndexRoute
   '/error/': typeof ErrorIndexRoute
   '/login/': typeof LoginIndexRoute
+  '/products/': typeof ProductsIndexRoute
   '/thankyou/': typeof ThankyouIndexRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/cart/'
     | '/error/'
     | '/login/'
+    | '/products/'
     | '/thankyou/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/error'
     | '/login'
+    | '/products'
     | '/thankyou'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/cart/'
     | '/error/'
     | '/login/'
+    | '/products/'
     | '/thankyou/'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   CartIndexRoute: typeof CartIndexRoute
   ErrorIndexRoute: typeof ErrorIndexRoute
   LoginIndexRoute: typeof LoginIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
   ThankyouIndexRoute: typeof ThankyouIndexRoute
 }
 
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/thankyou'
       fullPath: '/thankyou/'
       preLoaderRoute: typeof ThankyouIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login/': {
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartIndexRoute: CartIndexRoute,
   ErrorIndexRoute: ErrorIndexRoute,
   LoginIndexRoute: LoginIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
   ThankyouIndexRoute: ThankyouIndexRoute,
 }
 export const routeTree = rootRouteImport

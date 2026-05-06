@@ -16,13 +16,19 @@
 body {
   background-color: #0f0f1a;
   color: #e0e0e0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 @layer components {
   .glass-container {
     @apply bg-white/15 backdrop-blur-xl border border-white/30 rounded-2xl shadow-2xl;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.8),
+      inset 0 0 10px rgba(255, 255, 255, 0.1);
   }
 
   .cyber-card {
@@ -43,22 +49,32 @@ body {
 }
 
 .neon-glow-fire:hover {
-  box-shadow: 0 0 15px var(--neon-fire), 0 0 30px var(--neon-fire);
+  box-shadow:
+    0 0 15px var(--neon-fire),
+    0 0 30px var(--neon-fire);
   border-color: var(--neon-fire);
 }
 .neon-glow-water:hover {
-  box-shadow: 0 0 15px var(--neon-water), 0 0 30px var(--neon-water);
+  box-shadow:
+    0 0 15px var(--neon-water),
+    0 0 30px var(--neon-water);
   border-color: var(--neon-water);
 }
 .neon-glow-grass:hover {
-  box-shadow: 0 0 15px var(--neon-grass), 0 0 30px var(--neon-grass);
+  box-shadow:
+    0 0 15px var(--neon-grass),
+    0 0 30px var(--neon-grass);
   border-color: var(--neon-grass);
 }
 .neon-glow-electric:hover {
-  box-shadow: 0 0 15px var(--neon-electric), 0 0 30px var(--neon-electric);
+  box-shadow:
+    0 0 15px var(--neon-electric),
+    0 0 30px var(--neon-electric);
   border-color: var(--neon-electric);
 }
 .neon-glow-default:hover {
-  box-shadow: 0 0 15px var(--neon-default), 0 0 30px var(--neon-default);
+  box-shadow:
+    0 0 15px var(--neon-default),
+    0 0 30px var(--neon-default);
   border-color: var(--neon-default);
 }
