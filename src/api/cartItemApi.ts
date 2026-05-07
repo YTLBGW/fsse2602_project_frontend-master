@@ -2,7 +2,7 @@ import axios from "axios";
 import type {CartItemDto} from "../data/cartitem/cartitem.type.ts";
 import {getAuthConfig} from "../authService/FirebaseAuthService.ts";
 
-const baseUrl = "http://localhost:8080";
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export async function getUserCart() {
   const response = await axios.get<CartItemDto[]>(

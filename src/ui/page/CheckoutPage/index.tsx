@@ -26,8 +26,8 @@ export default function CheckoutPage() {
     try {
       const stripeUrl = await patchTransactionProcessing(Number(tid));
       window.location.replace(stripeUrl);
-      await patchTransactionSuccess(Number(tid));
-      void navigate({ to: "/thankyou", search: { tid } });
+      // await patchTransactionSuccess(Number(tid));
+      // void navigate({ to: "/thankyou", search: { tid } });
     } catch {
       void navigate({ to: "/error" });
     } finally {

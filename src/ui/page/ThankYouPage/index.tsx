@@ -1,10 +1,25 @@
 import { Button, Container } from "react-bootstrap";
 import { useNavigate, useSearch } from "@tanstack/react-router";
+import {useEffect} from "react";
+import {patchTransactionSuccess} from "../../../api/transactionApi.ts";
 
 export default function ThankYouPage() {
   const navigate = useNavigate();
   const search = useSearch({ from: "/thankyou/" });
   const tid = search?.tid;
+
+  useEffect(() => {
+    const finalizeTransaction = async () => {
+      if (tid) {
+        try {
+          await patchTransactionSuccess(Number(tid));
+        } catch (error) {
+          console.error("Failed to mark transaction as success", error);
+        }
+      }
+    };
+    void finalizeTransaction();
+  }, [tid]);
 
   return (
     <div
