@@ -1,5 +1,5 @@
-import {initializeApp} from "firebase/app";
-import {firebaseConfig} from "./FirebaseConfig";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./FirebaseConfig";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -8,8 +8,7 @@ import {
   signInWithPopup,
   signOut as firebaseSignOut
 } from "firebase/auth";
-import type {UserData} from "../data/user/user.type.ts";
-
+import type { UserData } from "../data/user/user.type.ts";
 
 export const serviceInit = () => {
   // Your web app's Firebase configuration

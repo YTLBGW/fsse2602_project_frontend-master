@@ -5,8 +5,7 @@ import type { TransactionDto } from "../../../data/transaction/transaction.type.
 import LoadingContainer from "../../components/LoadingContainer.tsx";
 import {
   getTransactionByTid,
-  patchTransactionProcessing,
-  patchTransactionSuccess,
+  patchTransactionProcessing
 } from "../../../api/transactionApi.ts";
 import { LoginUserContext } from "../../../context/LoginUserContext.tsx";
 import { useNavigate, useParams } from "@tanstack/react-router";

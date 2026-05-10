@@ -1,14 +1,16 @@
 import { Button, Container, Row, Col } from "react-bootstrap";
 import QuantitySelector from "../../components/QuantitySelector.tsx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import type { ProductDto } from "../../../data/product/product.type.ts";
 import { useNavigate, useParams } from "@tanstack/react-router";
 import LoadingContainer from "../../components/LoadingContainer.tsx";
 import { getProductByPid } from "../../../api/productApi.ts";
 import { putCartItem } from "../../../api/cartItemApi.ts";
 import { getGlowClass } from "../../theme/neonUtils.ts";
+import { LoginUserContext } from "../../../context/LoginUserContext.tsx";
 
 export default function ProductDetailPage() {
+  const loginUser = useContext(LoginUserContext);
   const [productDto, setProductDto] = useState<ProductDto | undefined>(
     undefined,
   );
@@ -32,6 +34,17 @@ export default function ProductDetailPage() {
   };
 
   const handleAddToCart = async () => {
+    if (!loginUser) {
+      void navigate({
+        to: "/login",
+        search: {
+          redirect: `/product/${productId}`,
+          reason: "add_to_cart",
+        },
+      });
+      return;
+    }
+
     if (productDto) {
       try {
         setIsAddingToCart(true);
